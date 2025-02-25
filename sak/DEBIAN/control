@@ -1,0 +1,9 @@
+Package: sak
+Version: 0.1
+Architecture: all
+Maintainer: bdiwy <deve.ahmed.bdiwy@gmail.com>
+Description: A Swiss Army Knife for DevOps
+ This is a command-line tool designed to help DevOps engineers automate tasks.
+Priority: optional
+Section: utils
+Depends: bash, coreutils
