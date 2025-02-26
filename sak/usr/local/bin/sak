@@ -33,9 +33,11 @@ fi
 
 # Ask the user which script to run
 echo -e "${YELLOW}\nWhich tool would you like to run?${NC}"
-echo -e "1️⃣  Backup Script (Performs Backups for important directories, DB, and compresses them)"
-echo -e "2️⃣  Server Health Check (Checks disk, memory, CPU, and services)"
-read -p "Enter your choice (1 or 2): " CHOICE
+echo -e "1)  Backup Script (Performs Backups for important directories, DB, and compresses them)"
+echo -e "2)  Server Health Check (Checks disk, memory, CPU, and services)"
+echo -e "3)  Log Rotation Script (Managing log files, ensuring they don’t consume too much disk space)"
+echo -e "4)  Service Monitoring & Auto-Restart Script (This script checks if critical services are running. If a service is down restart it)"
+read -p "Enter your choice (1 or 2 or 3): " CHOICE
 
 # Run the selected script with full path
 case $CHOICE in
@@ -46,6 +48,14 @@ case $CHOICE in
     2)
         echo -e "${GREEN}🔹 Running Server Health Check...${NC}"
         bash "$SCRIPT_DIR/ServerHealthCheck.sh"
+        ;;
+    3)
+        echo -e "${GREEN}🔹 Running Log Rotation...${NC}"
+        bash "$SCRIPT_DIR/LogRotationScript.sh"
+        ;;
+    4)
+        echo -e "${GREEN}🔹 Running Log Rotation...${NC}"
+        bash "$SCRIPT_DIR/AutoRestartFailedServices.sh"
         ;;
     *)
         echo -e "${RED}❌ Invalid choice! Exiting.${NC}"
